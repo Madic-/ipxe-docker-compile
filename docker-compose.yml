@@ -15,7 +15,3 @@ services:
     labels:
       - "namespace=ipxe"
     container_name: ipxe
-#    tty: True
-#    privileged: true
-#    cap_add:
-#      - SYS_ADMIN
