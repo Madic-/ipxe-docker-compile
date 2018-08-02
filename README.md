@@ -1,4 +1,4 @@
-# ipxe-docker-compile
+# iPXE docker compile environment
 
 These docker files will build a docker image where the iPXE boot firmwares will be compiled and downloads latest wimboot binaries.
 
@@ -22,10 +22,14 @@ This docker environment requires two volumes.
 
 ## Usage
 
+Create a copy from docker-compose.example.yml to docker-compose.yml and edit the file to reflect your requirements, e.g. volume locations.
+
+Create a folder with your custom iPXE configuration, e.g. with name ipxe.local.
+
 Build docker image and iPXE binaries
 
     docker-compose up -d --build
 
-Only (re)build iPXE binaries if docker images already present
+Only (re)build iPXE binaries if the docker image is already present
 
     docker-compose up -d
