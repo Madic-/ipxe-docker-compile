@@ -1,0 +1,21 @@
+version: '3.2'
+
+services:
+  ipxe:
+    build:
+      context: ./
+    image: ipxe
+    volumes:
+      - type: bind
+        source: ./compile
+        target: /compile
+      - type: bind
+        source: ./ipxe.local
+        target: /opt/ipxe.local
+    labels:
+      - "namespace=ipxe"
+    container_name: ipxe
+#    tty: True
+#    privileged: true
+#    cap_add:
+#      - SYS_ADMIN
