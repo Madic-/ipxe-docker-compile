@@ -4,7 +4,7 @@ These docker files will build a docker image where the iPXE boot firmwares will 
 
 iPXE is a pxe boot firmware. More about iPXE at [http://ipxe.org](http://ipxe.org/).
 
-First, it downloads the latest iPXE source code into the volume /compile, then copies custom iPXE configuration to ./{{ ipxe src }}/src/config/local/ and compiles the source code with **make all**.
+First, it downloads the latest iPXE source code into the volume /compile, then copies custom iPXE configuration to ./{{ ipxe src }}/src/config/local/ and compiles the source code with **make all**. The binaries can be found in volume ./compile/ipxe/src/bin.
 
 An example custom iPXE configuration is provided in the ipxe.local.example folder.
 
@@ -13,6 +13,7 @@ At last it will download latest wimboot binaries to /compile/wimboot and extract
 An example docker-compose.example.yml is also provided.
 
 ## Volumes
+
 This docker environment requires two volumes.
 
 | Volume | Purpose |
