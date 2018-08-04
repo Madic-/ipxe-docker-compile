@@ -35,7 +35,7 @@ else
 	git clone git://git.ipxe.org/ipxe.git $DIR_IPXE
 	echo
 fi
-cp /opt/ipxe.local/* $DIR_IPXE/src/config/local/
+if [ -n "$(ls -A /opt/ipxe.local)" ]; then echo "Copying custom configuration..."; echo; cp /opt/ipxe.local/* $DIR_IPXE/src/config/local/; fi
 cd $DIR_IPXE/src || exit
 echo "Building ipxe..."
 $CMD_BUILD $CMD_EMBEDD
