@@ -15,3 +15,5 @@ services:
     labels:
       - "namespace=ipxe"
     container_name: ipxe
+    environment:
+      - ENV_BUILD=make everything

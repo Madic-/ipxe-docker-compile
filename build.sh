@@ -2,6 +2,12 @@
 
 start=$(date +%s)
 
+if [ -z "$ENV_BUILD" ]; then
+    CMD_BUILD="make everything"
+else
+    CMD_BUILD="$ENV_BUILD"
+fi
+
 DIR_IPXE=/compile/ipxe
 DIR_WIMBOOT=/compile/wimboot
 DIR_LOGS=/compile/logs
@@ -26,7 +32,7 @@ fi
 cp /opt/ipxe.local/* $DIR_IPXE/src/config/local/
 cd $DIR_IPXE/src || exit
 echo "Building ipxe..."
-make everything
+$CMD_BUILD
 
 echo
 
