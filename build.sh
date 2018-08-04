@@ -3,7 +3,7 @@
 start=$(date +%s)
 
 if [ -z "$ENV_BUILD" ]; then
-    CMD_BUILD="make everything"
+    CMD_BUILD="make -j4 everything"
 else
     CMD_BUILD="$ENV_BUILD"
 fi

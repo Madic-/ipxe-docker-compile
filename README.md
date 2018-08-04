@@ -25,7 +25,7 @@ This docker environment requires two volumes.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ENV_BUILD | make everything | Build command. More Information about build targets [here](https://ipxe.org/appnote/buildtargets) |
+| ENV_BUILD | make -j4 everything | Build command. More Information about build targets [here](https://ipxe.org/appnote/buildtargets) |
 | ENV_EMBEDD | EMPTY | Path to script within container which should be embedded |
 
 ## Usage
