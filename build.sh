@@ -14,6 +14,12 @@ else
     CMD_EMBEDD="EMBED=$ENV_EMBEDD"
 fi
 
+if [ -z "$ENV_DEBUG" ]; then
+    CMD_DEBUG=""
+else
+    CMD_DEBUG="DEBUG=$ENV_DEBUG"
+fi
+
 DIR_IPXE=/compile/ipxe
 DIR_WIMBOOT=/compile/wimboot
 DIR_LOGS=/compile/logs
@@ -38,7 +44,7 @@ fi
 if [ -n "$(ls -A /opt/ipxe.local)" ]; then echo "Copying custom configuration..."; echo; cp /opt/ipxe.local/* $DIR_IPXE/src/config/local/; fi
 cd $DIR_IPXE/src || exit
 echo "Building ipxe..."
-$CMD_BUILD $CMD_EMBEDD
+$CMD_BUILD $CMD_EMBEDD $CMD_DEBUG
 
 echo
 
