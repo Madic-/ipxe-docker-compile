@@ -26,7 +26,7 @@ fi
 cp /opt/ipxe.local/* $DIR_IPXE/src/config/local/
 cd $DIR_IPXE/src || exit
 echo "Building ipxe..."
-make all
+make everything
 
 echo
 
