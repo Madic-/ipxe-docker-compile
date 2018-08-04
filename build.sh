@@ -11,7 +11,7 @@ fi
 if [ -z "$ENV_EMBEDD" ]; then
     CMD_EMBEDD=
 else
-    CMD_EMBEDD="$ENV_EMBEDD"
+    CMD_EMBEDD="EMBED=$ENV_EMBEDD"
 fi
 
 DIR_IPXE=/compile/ipxe
