@@ -8,6 +8,12 @@ else
     CMD_BUILD="$ENV_BUILD"
 fi
 
+if [ -z "$ENV_EMBEDD" ]; then
+    CMD_EMBEDD=
+else
+    CMD_EMBEDD="$ENV_EMBEDD"
+fi
+
 DIR_IPXE=/compile/ipxe
 DIR_WIMBOOT=/compile/wimboot
 DIR_LOGS=/compile/logs
@@ -32,7 +38,7 @@ fi
 cp /opt/ipxe.local/* $DIR_IPXE/src/config/local/
 cd $DIR_IPXE/src || exit
 echo "Building ipxe..."
-$CMD_BUILD
+$CMD_BUILD $CMD_EMBEDD
 
 echo
 

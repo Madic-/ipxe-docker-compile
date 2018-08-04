@@ -17,3 +17,4 @@ services:
     container_name: ipxe
     environment:
       - ENV_BUILD=make everything
+#      - ENV_EMBEDD=/compile/ipxe/src/config/local/ipxescript
