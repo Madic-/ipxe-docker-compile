@@ -3,8 +3,8 @@ version: '3.2'
 services:
   ipxe:
     build:
-      context: ./
-    image: ipxe
+      context: https://github.com/Madic-/ipxe-docker-compile.git
+    image: ipxe:latest
     volumes:
       - type: bind
         source: ./compile
