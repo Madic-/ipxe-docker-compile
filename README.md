@@ -21,6 +21,14 @@ This docker environment requires two volumes.
 |/compile | Location for build.log, latest wimboot and iPXE source code |
 |/opt/ipxe.local| Custom iPXE configuration. All files will be copied to ./{{ ipxe src }}/src/config/local/ | 
 
+## Environment Variables
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ENV_BUILD | make -j4 everything | Build command. More Information about build targets [here](https://ipxe.org/appnote/buildtargets) |
+| ENV_EMBEDD | EMPTY | Path to script within container which should be embedded |
+| ENV_DEBUG | EMPTY | List of iPXE DEBUG objects that should be included at build time. See [here](http://ipxe.org/download#debug_builds) for more information |
+
 ## Usage
 
 Create a copy from docker-compose.example.yml to docker-compose.yml and edit the file to reflect your requirements, e.g. volume locations.

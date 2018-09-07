@@ -2,6 +2,24 @@
 
 start=$(date +%s)
 
+if [ -z "$ENV_BUILD" ]; then
+    CMD_BUILD="make -j4 everything"
+else
+    CMD_BUILD="$ENV_BUILD"
+fi
+
+if [ -z "$ENV_EMBEDD" ]; then
+    CMD_EMBEDD=
+else
+    CMD_EMBEDD="EMBED=$ENV_EMBEDD"
+fi
+
+if [ -z "$ENV_DEBUG" ]; then
+    CMD_DEBUG=""
+else
+    CMD_DEBUG="DEBUG=$ENV_DEBUG"
+fi
+
 DIR_IPXE=/compile/ipxe
 DIR_WIMBOOT=/compile/wimboot
 DIR_LOGS=/compile/logs
@@ -23,10 +41,10 @@ else
 	git clone git://git.ipxe.org/ipxe.git $DIR_IPXE
 	echo
 fi
-cp /opt/ipxe.local/* $DIR_IPXE/src/config/local/
+if [ -n "$(ls -A /opt/ipxe.local)" ]; then echo "Copying custom configuration..."; echo; cp /opt/ipxe.local/* $DIR_IPXE/src/config/local/; fi
 cd $DIR_IPXE/src || exit
 echo "Building ipxe..."
-make everything
+$CMD_BUILD $CMD_EMBEDD $CMD_DEBUG
 
 echo
 
