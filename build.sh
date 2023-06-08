@@ -28,7 +28,7 @@ if [ ! -d "$DIR_WIMBOOT" ]; then mkdir -p "$DIR_WIMBOOT"; fi
 if [ ! -d "$DIR_LOGS" ]; then mkdir -p "$DIR_LOGS"; fi
 
 # Write log to file
-exec &>$DIR_LOGS/build.log
+exec &> >(tee "$DIR_LOGS/build.log")
 
 # Download and compile ipxe
 if [ -d $DIR_IPXE/.git ]; then
@@ -38,7 +38,7 @@ if [ -d $DIR_IPXE/.git ]; then
 	echo
 else
 	echo "Cloning ipxe repository..."
-	git clone git://git.ipxe.org/ipxe.git $DIR_IPXE
+	git clone git://github.com/ipxe/ipxe.git $DIR_IPXE
 	echo
 fi
 if [ -n "$(ls -A /opt/ipxe.local)" ]; then echo "Copying custom configuration..."; echo; cp /opt/ipxe.local/* $DIR_IPXE/src/config/local/; fi
