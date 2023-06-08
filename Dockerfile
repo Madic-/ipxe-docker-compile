@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM debian:bullseye
 MAINTAINER Michael Neese <madic@geekbundle.org>
 
 ENV HOME /root
@@ -8,7 +8,7 @@ RUN \
   apt-get -y upgrade && \
   apt-get install -y build-essential git liblzma-dev mkisofs unzip wget coreutils isolinux
 
-ADD ./build.sh /bin/build.sh
+COPY ./build.sh /bin/build.sh
 
 RUN chmod +x /bin/build.sh
 
