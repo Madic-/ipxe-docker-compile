@@ -3,6 +3,7 @@ services:
     build:
       context: ./
     image: ipxe:latest
+    user: ${UID}
     volumes:
       - type: bind
         source: ./compile
@@ -15,5 +16,7 @@ services:
     container_name: ipxe
     environment:
       - ENV_BUILD=make -j4 everything
+      # Enter common build targets to reduce build time
+#      - ENV_BUILD=make -j4 --makefile=./Makefile bin-i386-pcbios/ipxe.pxe bin-i386-pcbios/undionly.kpxe bin-x86_64-efi/ipxe.efi
 #      - ENV_EMBEDD=/compile/ipxe/src/config/local/ipxescript
 #      - ENV_DEBUG=scsi,iscsi

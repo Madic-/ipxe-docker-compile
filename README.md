@@ -50,6 +50,8 @@ docker compose run --rm ipxe
 | ENV_EMBEDD | EMPTY | Path to script within container which should be embedded |
 | ENV_DEBUG | EMPTY | List of iPXE DEBUG objects that should be included at build time. See [here](http://ipxe.org/download#debug_builds) for more information |
 
+Alternativ build target can be **make -j4 --makefile=./Makefile bin-i386-pcbios/ipxe.pxe bin-i386-pcbios/undionly.kpxe bin-x86_64-efi/ipxe.efi** to reduce build time
+
 ## Storage
 
 This container uses the following paths:
