@@ -1,14 +1,13 @@
-FROM ubuntu:16.04
-MAINTAINER Michael Neese <madic@geekbundle.org>
+FROM debian:bookworm
+LABEL org.opencontainers.image.authors="Michael Neese <madic@geekbundle.org>"
 
-ENV HOME /root
+ENV HOME=/root
 
 RUN \
   apt-get update && \
-  apt-get -y upgrade && \
   apt-get install -y build-essential git liblzma-dev mkisofs unzip wget coreutils isolinux
 
-ADD ./build.sh /bin/build.sh
+COPY ./build.sh /bin/build.sh
 
 RUN chmod +x /bin/build.sh
 
