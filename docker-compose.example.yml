@@ -1,9 +1,7 @@
-version: '3.2'
-
 services:
   ipxe:
     build:
-      context: https://github.com/Madic-/ipxe-docker-compile.git
+      context: ./
     image: ipxe:latest
     volumes:
       - type: bind
@@ -16,6 +14,6 @@ services:
       - "namespace=ipxe"
     container_name: ipxe
     environment:
-      - ENV_BUILD=make everything
+      - ENV_BUILD=make -j4 everything
 #      - ENV_EMBEDD=/compile/ipxe/src/config/local/ipxescript
 #      - ENV_DEBUG=scsi,iscsi
