@@ -33,13 +33,13 @@ cp -r ipxe.local.example ipxe.local
 Build docker image and iPXE binaries
 
 ```shell
-docker-compose up --build
+docker compose run --rm --build ipxe
 ```
 
 Only (re)build iPXE binaries if the docker image is already present
 
 ```shell
-docker-compose up
+docker compose run --rm ipxe
 ```
 
 ## Environment Variables
